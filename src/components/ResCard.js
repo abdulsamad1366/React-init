@@ -16,4 +16,4 @@ const ResCard = (dets) => {
     )
 }
 
-export default ResCard;
+export default ResCard ;
