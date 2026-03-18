@@ -2,8 +2,6 @@ import ResCard from "./ResCard";
 import resList from "../utils/mockData.js";
 
 
-
-
 const Body = () => {
     return (
         <div className="body">
