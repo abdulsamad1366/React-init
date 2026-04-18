@@ -40,27 +40,83 @@
 }
 
 .res-card {
-    width: 200px;
+    width: 220px;
     padding: 10px;
     border: none;
-    border-radius: 12px;
+    border-radius: 16px;
     background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     cursor: pointer;
     margin: 10px;
+    overflow: hidden;
 }
 
 .res-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.14);
 }
 
 .res-logo {
     width: 100%;
-    height: 150px;
+    height: 155px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 12px;
+}
+
+.res-info {
+    padding: 10px 2px 4px;
+}
+
+.res-name {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1f2937;
+    margin-bottom: 6px;
+}
+
+.res-cuisines {
+    font-size: 0.86rem;
+    color: #6b7280;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 38px;
+}
+
+.res-meta-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.res-rating,
+.res-time {
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 999px;
+}
+
+.res-rating {
+    color: #17633a;
+    background-color: #e6f7ee;
+}
+
+.res-time {
+    color: #8a5400;
+    background-color: #fff4de;
+}
+
+.res-cost {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #111827;
 }
 
 .filter-btn {
@@ -75,4 +131,60 @@
 
 .filter-btn:hover {
     background-color: #0056b3;
+}
+
+.shimmer-card {
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.shimmer-image,
+.shimmer-line {
+    background: linear-gradient(90deg, #ececec 25%, #f5f5f5 37%, #ececec 63%);
+    background-size: 400% 100%;
+    animation: shimmer 1.3s ease-in-out infinite;
+}
+
+.shimmer-image {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.shimmer-line {
+    height: 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.shimmer-line-title {
+    width: 75%;
+    height: 14px;
+}
+
+.shimmer-line-text {
+    width: 100%;
+}
+
+.shimmer-line-text.short {
+    width: 60%;
+}
+
+.shimmer-line-meta {
+    width: 45%;
+    margin-bottom: 0;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
 }
