@@ -19,11 +19,8 @@ const getRestaurants = async () => {
   setlistofrestaurants(restaurantList ?? []);
 };  
 
-if (listofrestaurants.length === 0) {
-  return <ShimmerCard />;
-}
 
-  return (
+  return listofrestaurants.length === 0 ?  <ShimmerCard /> :(
     <div className="body">
       <div className="filter">
         <button
