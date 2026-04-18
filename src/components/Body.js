@@ -23,6 +23,17 @@ const getRestaurants = async () => {
   return listofrestaurants.length === 0 ?  <ShimmerCard /> :(
     <div className="body">
       <div className="filter">
+        <div className="search-box">
+          <input  
+            onClick={() => {
+              //filter the card and update the UI
+            }}
+            type="text"
+            placeholder="Search for restaurants..."
+            className="search-input"
+          />
+          <button className="search-btn">Search</button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
