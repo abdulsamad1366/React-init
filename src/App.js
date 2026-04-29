@@ -5,6 +5,8 @@ import Body from "./components/Body.js";
 import ResCard from "./components/ResCard.js";
 import {createBrowserRouter , RouterProvider} from "react-router-dom";
 import About from "./components/About.js";
+import Contact from "./components/Contact.js";
+import Error from "./components/Error.js";
 
 
 const Applayout = () => {
@@ -19,7 +21,8 @@ const Applayout = () => {
 const appRouter = createBrowserRouter([
     {
         path:"/",
-        element:<Applayout />
+        element:<Applayout />,
+        errorElement:<Error />
     },
     {
         path:"/about",
@@ -28,7 +31,7 @@ const appRouter = createBrowserRouter([
      {
         path:"/contact",
         element:<Contact/>
-     }
+    },
 ])
 
 
