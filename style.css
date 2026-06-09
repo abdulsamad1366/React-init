@@ -213,11 +213,25 @@ body {
     box-shadow: 0 18px 32px rgba(34, 35, 61, 0.16);
 }
 
-.res-logo {
+.res-logo-container {
+    position: relative;
     width: 100%;
     height: 165px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.res-logo {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.res-card:hover .res-logo {
+    transform: scale(1.08);
 }
 
 .res-info {
@@ -294,10 +308,14 @@ body {
 }
 
 .shimmer-image {
-    width: 100% ;
+    width: 100%;
     height: 165px;
     border-radius: 12px;
     margin-bottom: 12px;
+}
+
+.shimmer-info {
+    padding: 11px 2px 5px;
 }
 
 .shimmer-line {
@@ -309,18 +327,34 @@ body {
 .shimmer-line-title {
     width: 75%;
     height: 14px;
+    margin-bottom: 8px;
 }
 
 .shimmer-line-text {
     width: 100%;
+    height: 12px;
 }
 
 .shimmer-line-text.short {
     width: 62%;
 }
 
-.shimmer-line-meta {
+.shimmer-meta-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.shimmer-pill {
+    height: 12px !important;
+    width: 70px;
+    border-radius: 999px;
+    flex: 0 0 auto;
+}
+
+.shimmer-line-cost {
     width: 45%;
+    height: 12px;
     margin-bottom: 0;
 }
 

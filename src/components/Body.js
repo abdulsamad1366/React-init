@@ -14,16 +14,27 @@ useEffect(() => {
 
 const getRestaurants = async () => {
   setIsLoading(true);
-  const data = await fetch(
-    "https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.49870&lng=77.66690&collection=80355&tags=layout_ux4&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
-  );
-  const json = await data.json();
-  const restaurantList = json?.data?.cards?.filter(
-    (card) => card?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.Restaurant"
-  );
-  setAllRestaurants(restaurantList ?? []);
-  setlistofrestaurants(restaurantList ?? []);
-  setIsLoading(false);
+  try {
+    const res = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.49870&lng=77.66690&collection=80355&tags=layout_ux4&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
+    );
+
+    if (!res.ok) throw new Error(`Network response was not ok: ${res.status}`);
+
+    const json = await res.json();
+    const restaurantList = json?.data?.cards?.filter(
+      (card) => card?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.Restaurant"
+    );
+    setAllRestaurants(restaurantList ?? []);
+    setlistofrestaurants(restaurantList ?? []);
+  } catch (err) {
+    console.error("Failed to fetch restaurants:", err);
+    // Fallback: empty list so the UI doesn't crash. Optionally add mock data here.
+    setAllRestaurants([]);
+    setlistofrestaurants([]);
+  } finally {
+    setIsLoading(false);
+  }
 };  
 
 const handleSearch = () => {
