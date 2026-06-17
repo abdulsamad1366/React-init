@@ -1,7 +1,10 @@
-const user = {
-  name: 'John Doe',
-  email: '  xyz@gmail.com  ',
-  age: 30,
+import React from "react";
+const User = ({ name, location }) => {  
+    return (
+        <div>
+            <h1>NAME: {name}</h1> 
+            <h1>LOCATION : {location}</h1>
+        </div>
+    );
 };
-
-export default user;
+export default User;

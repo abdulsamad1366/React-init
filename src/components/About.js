@@ -1,10 +1,11 @@
-import user from './User';
-
+import User from './User';
+    
 const About = () => {
     return (
         <div>
             <h1>About Us Page</h1>
-            <User />
+            <User name={"samad"}/>
+            
         </div>
     )
 }
