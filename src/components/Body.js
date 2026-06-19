@@ -1,12 +1,14 @@
 import ResCard from "./ResCard";
 import {useState , useEffect} from "react";
 import ShimmerCard from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlinestatus";
 
 const Body = () => {
 const [isLoading, setIsLoading] = useState(true);
 const [allRestaurants, setAllRestaurants] = useState([]);
 const [listofrestaurants , setlistofrestaurants ] = useState([]);
 const [searchText , setSearchText] = useState("");
+const onlineStatus = useOnlineStatus();
 
 useEffect(() => {
   getRestaurants();
@@ -51,6 +53,10 @@ const handleSearch = () => {
 
   setlistofrestaurants(filteredRestaurants);
 };
+
+  if (onlineStatus === false) {
+    return <h1>Looks like you are offline!! Please check your internet connection</h1>;
+  }
 
   if (isLoading) {
     return <ShimmerCard />;
