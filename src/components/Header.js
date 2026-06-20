@@ -32,7 +32,7 @@ const Header = () => {
             <span>🛒</span> Cart
           </li>
           <button
-            className="ml-2 px-4.5 py-1.5 rounded-full font-sora font-bold text-xs uppercase tracking-wider border border-brand/20 bg-gradient-to-b from-white to-surface-soft text-text-main shadow-sm hover:border-brand/40 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
+            className="ml-2 px-5 py-2 rounded-full font-sora font-bold text-xs uppercase tracking-wider text-white bg-slate-900 hover:bg-slate-800 hover:scale-105 active:scale-95 transition-all shadow-sm cursor-pointer"
             onClick={() => {
               btnNameReact === "Logout" ? setbtnNameReact("Login") : setbtnNameReact("Logout");
             }}
