@@ -63,12 +63,13 @@ const handleSearch = () => {
   }
 
   return (
-    <div className="body">
-      <div className="filter">
-        <div className="search-box">
+    <div className="flex flex-col gap-6 mt-2">
+      {/* Search and Filters Bar */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 border border-border-soft rounded-2xl bg-white/40 backdrop-blur-xs">
+        <div className="flex items-center gap-2 p-1 bg-white border border-slate-100 rounded-xl shadow-sm focus-within:border-brand/40 focus-within:ring-3 focus-within:ring-brand/10 transition-all duration-200 w-full md:w-auto">
           <input
             type="text"
-            placeholder="Search restaurants"
+            placeholder="Search restaurants..."
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             onKeyDown={(e) => {
@@ -76,12 +77,17 @@ const handleSearch = () => {
                 handleSearch();
               }
             }}
-            className="search-input"
+            className="flex-1 md:w-72 px-3.5 py-2 text-sm text-text-main placeholder-slate-400 bg-transparent border-0 outline-none"
           />
-          <button className="search-btn" onClick={handleSearch}>Search</button>
+          <button 
+            className="px-4.5 py-2 text-xs md:text-sm font-sora font-semibold text-white bg-slate-900 rounded-lg hover:bg-slate-800 transition-all active:scale-95 cursor-pointer"
+            onClick={handleSearch}
+          >
+            Search
+          </button>
         </div>
         <button
-          className="filter-btn"
+          className="px-5 py-2.5 text-xs md:text-sm font-sora font-bold text-white bg-gradient-to-r from-brand to-[#ff8d47] rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all cursor-pointer flex items-center justify-center gap-1.5 self-stretch md:self-auto"
           onClick={() => {
             const filteredList = allRestaurants.filter(
               (res) => res?.card?.card?.info?.avgRating > 4 
@@ -89,16 +95,20 @@ const handleSearch = () => {
             setlistofrestaurants(filteredList);
           }}
         >
-          Top Rated Restaurants{" "}
+          ✨ Top Rated Restaurants
         </button>
       </div>
-      <div className="rest-container">
+
+      {/* Restaurants List */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {listofrestaurants.length > 0 ? (
           listofrestaurants.map((restaurant) => (
             <ResCard key={restaurant.card.card.info.id} resData={restaurant} />
           ))
         ) : (
-          <p>No restaurants found. Try a different search.</p>
+          <div className="col-span-full text-center py-16 px-4 bg-white/40 border border-border-soft rounded-2xl">
+            <p className="text-text-muted font-sora text-base md:text-lg font-medium">No restaurants found. Try a different search.</p>
+          </div>
         )}
       </div>
     </div>

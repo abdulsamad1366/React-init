@@ -1,1 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@500;600;700&display=swap");
 @import "tailwindcss";
+
+@theme {
+  /* Brand Palette */
+  --color-brand: #ff6a3d;
+  --color-brand-dark: #db4e24;
+  
+  /* Background and Surface Palette */
+  --color-bg-main: #f6f7fb;
+  --color-bg-accent: #ffe8cf;
+  --color-surface: #ffffff;
+  --color-surface-soft: #fff7ee;
+  
+  /* Text colors */
+  --color-text-main: #1f2433;
+  --color-text-muted: #69718a;
+  
+  /* Custom badge colors */
+  --color-pill-green: #e6f7ee;
+  --color-pill-green-text: #17633a;
+  --color-pill-yellow: #fff4de;
+  --color-pill-yellow-text: #8a5400;
+  
+  /* Borders */
+  --color-border-soft: rgba(20, 30, 54, 0.09);
+
+  /* Animation and Keyframes */
+  --animate-shimmer: shimmer 1.5s infinite linear;
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+}
+
+/* Global Base Styles */
+@layer base {
+  body {
+    font-family: "Manrope", sans-serif;
+    color: var(--color-text-main);
+    background:
+        radial-gradient(circle at 8% 2%, #ffe6cf 0%, transparent 35%),
+        radial-gradient(circle at 92% 0%, #e4efff 0%, transparent 32%),
+        var(--color-bg-main);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
