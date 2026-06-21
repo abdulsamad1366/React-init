@@ -1,13 +1,16 @@
 import { LOGO_URL } from "../utils/constant";
 import { useState,useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [btnNameReact, setbtnNameReact] = useState("Login");
+  const location = useLocation();
 
   useEffect(() => {
     console.log("useEffect called in header"); 
   }, [btnNameReact]);
+
+  const isActive = (path) => location.pathname === path;
   return (
     <div className="flex flex-col md:flex-row items-center justify-between gap-4 px-6 py-3.5 border border-border-soft rounded-2xl bg-white/70 backdrop-blur-md shadow-md sticky top-4 z-50 transition-all duration-300">
       <Link to="/" className="flex items-center gap-3 group">
@@ -16,19 +19,19 @@ const Header = () => {
       </Link>
       <div className="flex items-center">
         <ul className="flex flex-wrap items-center justify-center gap-1.5 md:gap-3 list-none font-sora font-semibold text-xs md:text-sm text-text-muted">
-          <li className="px-3 py-1.5 rounded-full hover:bg-surface-soft hover:text-text-main transition-all duration-200 hover:-translate-y-0.5">
+          <li className={`px-3 py-1.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 ${isActive("/") ? "bg-brand text-white font-bold shadow-xs" : "hover:bg-surface-soft hover:text-text-main text-text-muted"}`}>
             <Link to="/">Home</Link>
           </li>
-          <li className="px-3 py-1.5 rounded-full hover:bg-surface-soft hover:text-text-main transition-all duration-200 hover:-translate-y-0.5">
+          <li className={`px-3 py-1.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 ${isActive("/about") ? "bg-brand text-white font-bold shadow-xs" : "hover:bg-surface-soft hover:text-text-main text-text-muted"}`}>
             <Link to="/about">About Us</Link>
           </li>
-          <li className="px-3 py-1.5 rounded-full hover:bg-surface-soft hover:text-text-main transition-all duration-200 hover:-translate-y-0.5">
+          <li className={`px-3 py-1.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 ${isActive("/grocery") ? "bg-brand text-white font-bold shadow-xs" : "hover:bg-surface-soft hover:text-text-main text-text-muted"}`}>
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="px-3 py-1.5 rounded-full hover:bg-surface-soft hover:text-text-main transition-all duration-200 hover:-translate-y-0.5">
+          <li className={`px-3 py-1.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 ${isActive("/contact") ? "bg-brand text-white font-bold shadow-xs" : "hover:bg-surface-soft hover:text-text-main text-text-muted"}`}>
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="px-3 py-1.5 rounded-full hover:bg-surface-soft hover:text-text-main transition-all duration-200 hover:-translate-y-0.5 cursor-pointer flex items-center gap-1">
+          <li className="px-3 py-1.5 rounded-full hover:bg-surface-soft hover:text-text-main transition-all duration-200 hover:-translate-y-0.5 cursor-pointer flex items-center gap-1 text-text-muted">
             <span>🛒</span> Cart
           </li>
           <button

@@ -1,5 +1,5 @@
 import User from './User';
-    
+
 const About = () => {
     return (
         <div className="flex flex-col items-center gap-6 py-12 px-6 max-w-2xl mx-auto bg-white/40 backdrop-blur-xs border border-border-soft rounded-3xl mt-4 shadow-sm text-center">
@@ -8,7 +8,7 @@ const About = () => {
                 Welcome to BiteDash! We build technologies that connect hungry foodies with their favorite local restaurants. Fresh, fast, and crafted with love.
             </p>
             <div className="w-full border-t border-slate-100 my-2" />
-            <User name={"Abdul Samad"} location={"Mathura, UP"} />
+            <User name={"Abdul Samad"} location={"Aligarh, UP"} />
         </div>
     )
 }

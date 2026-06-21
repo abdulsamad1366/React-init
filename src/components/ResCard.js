@@ -1,6 +1,6 @@
 import { CDN_URL } from "../utils/constant.js";
 
-const ResCard = (dets) => {
+export const ResCard = (dets) => {
     const { resData } = dets;
 
     const { name, cuisines, avgRating, costForTwo, cloudinaryImageId } = resData?.card.card.info;
@@ -28,4 +28,14 @@ const ResCard = (dets) => {
     );
 };
 
-export default ResCard ;
+export const withPromotedlabel = (ResCard) => {
+    return (props) => {
+        return (
+            <div className="relative">
+                <span className="absolute top-6 left-6 bg-slate-900/90 text-white text-[9px] font-extrabold px-2 py-0.5 rounded shadow-sm z-10 tracking-wider uppercase">Promoted</span>
+                <ResCard {...props} />
+            </div>
+        );
+    };
+};
+  
